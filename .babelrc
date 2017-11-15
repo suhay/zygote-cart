@@ -6,6 +6,7 @@
 	],
 	"plugins": [
 		"transform-decorators-legacy", /* should always be the first plugin! */
-		"styled-jsx/babel"
+		"styled-jsx/babel",
+		"styled-jsx-postcss/babel"
 	]
 }

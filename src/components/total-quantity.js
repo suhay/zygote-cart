@@ -4,12 +4,10 @@ import { observer } from "mobx-react"
 
 import productListStore from '../stores/product-list'
 
-@observer class ProductList extends React.Component {
+export default @observer class TotalQuantity extends React.Component {
 	render() {
 		return (
 			<span>{productListStore.totalQuantity}</span>
 		)
 	}
 }
-
-export default ProductList

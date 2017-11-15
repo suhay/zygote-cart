@@ -1,16 +1,24 @@
 import React from 'react'
 import { render } from 'react-dom'
 
+import CartState from '../stores/cart-state'
 import productListStore from '../stores/product-list'
 import TotalQuantity from '../components/total-quantity'
 
 function onClick(){
 	console.log('Add to cart click...')
 	const obj = Object.assign({}, this.dataset)
-	const qty = obj.qty
-	delete obj.openCart
-	delete obj.qty
+	const qty = obj.quantity
+	let openCart = false
+	if ('openCart' in obj){
+		openCart = true
+		delete obj.openCart
+	}
+	delete obj.quantity
 	productListStore.addProduct(obj, qty)
+	if(openCart){
+		CartState.isOpen = true
+	}
 }
 
 export default function hydrate(zygote){
