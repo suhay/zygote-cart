@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "webpack-dev-server --hot --open",
-    "build": "webpack -p"
+    "build": "webpack -p --optimize-minimize"
   },
   "devDependencies": {
     "babel-core": "^6.9.1",
@@ -18,17 +18,18 @@
     "babel-preset-stage-1": "^6.5.0",
     "cssnano": "^3.10.0",
     "lost": "^8.2.0",
+    "mobx-react-devtools": "^4.2.15",
     "postcss-cssnext": "^3.0.2",
     "postcss-load-plugins": "^2.3.0",
     "postcss-nested": "^2.1.2",
     "styled-jsx-postcss": "^0.2.0",
     "webpack": "^3.5.5",
+    "webpack-bundle-analyzer": "^2.9.1",
     "webpack-dev-server": "^2.7.1"
   },
   "dependencies": {
     "mobx": "^3.3.1",
     "mobx-react": "^4.3.4",
-    "mobx-react-devtools": "^4.2.15",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
     "styled-jsx": "^2.2.0"

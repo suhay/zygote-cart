@@ -21,6 +21,10 @@ function onClick(){
 	}
 }
 
+function openCart(){
+	CartState.isOpen = true
+}
+
 export default function hydrate(zygote){
 	// Add to cart buttons
 	processElement('add', el => {
@@ -30,6 +34,11 @@ export default function hydrate(zygote){
 	// Quantity buttons
 	processElement('qty', el => {
 		render(<TotalQuantity />, el)
+	})
+
+	// Open buttons
+	processElement('open', el => {
+		el.addEventListener('click', openCart)
 	})
 }
 

@@ -42,6 +42,7 @@ export default class ProductListModel {
 		})
 		return qty
 	}
+
 	findProductIndex(id){
 		for(let i = this.products.length; i--;){
 			if(this.products[i].obj.id === id){
@@ -59,7 +60,7 @@ export default class ProductListModel {
 			document.cookie = `products=${str}; expires=${date.toUTCString()}; path=/`
 		}
 		catch (e) {
-			console.log(e)
+			console.error(e)
 		}
 	}
 	cookieToCart(){
@@ -81,7 +82,7 @@ export default class ProductListModel {
 			}
 		}
 		catch (e) {
-			console.log(e)
+			console.error(e)
 		}
 	}
 }
