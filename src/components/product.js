@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { observer } from "mobx-react";
 
-const Product = observer(({ todo }) => (
+const Product = observer(({ product }) => (
 	<li>
-		{todo.title}
+		{product.obj.name} ({product.qty})
 	</li>
 ))
 

@@ -14,7 +14,28 @@ export default class ProductListModel {
 	}
 
 	@action
-	addProduct(title) {
-		this.products.push(new ProductModel(title))
+	addProduct(obj, qty = 1) {
+		let index = this.findProductIndex(obj.id)
+		if(index === false){
+			return this.products.push(new ProductModel(obj, qty))
+		}
+		return this.products[index].qty += qty
+	}
+
+	@computed
+	get totalQuantity() {
+		let qty = 0
+		this.products.forEach(product => {
+			qty += product.qty
+		})
+		return qty
+	}
+	findProductIndex(id){
+		for(let i = this.products.length; i--;){
+			if(this.products[i].obj.id === id){
+				return i
+			}
+		}
+		return false
 	}
 }

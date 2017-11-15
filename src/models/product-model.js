@@ -2,9 +2,11 @@ import { observable } from "mobx"
 
 export default class ProductModel {
 	id = Math.random()
-	@observable title
+	@observable obj
+	@observable qty
 
-	constructor(title) {
-		this.title = title
+	constructor(obj, qty) {
+		this.obj = obj
+		this.qty = typeof qty === 'number' ? qty : 1
 	}
 }
