@@ -1,31 +1,21 @@
-import ProductListModel from '../models/product-list-model'
-import ProductModel from '../models/product-model'
 import React from 'react'
 import { render } from 'react-dom'
 import DevTools from 'mobx-react-devtools'
-import ProductList from '../components/product-list'
+
+import ProductListStore from '../stores/product-list'
+import inject from './inject'
 
 function Zygote(){
-	this.addBtns = document.querySelectorAll('.zygoteAdd')
-	this.store = new ProductListModel()
-
-	this.store.addProduct("Test 1")
-	this.store.addProduct("Test 2")
-
-	const containerEl = document.createElement('div')
-	document.body.appendChild(containerEl)
-
-	render(
-		<div>
-			<DevTools />
-			<ProductList store={this.store} />
-		</div>,
-		containerEl
-	)
+	console.log('Zygote constructor...')
 }
 Zygote.prototype = {
-	hydrate: function(){
-
+	addProduct: function(product){
+		ProductListStore.addProduct(product)
+		return this
+	},
+	inject: function(){
+		inject()
+		return this
 	}
 }
 
