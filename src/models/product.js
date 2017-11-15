@@ -1,7 +1,6 @@
-import { observable, computed } from "mobx"
+import { observable, computed } from 'mobx'
 
 export default class ProductModel {
-	id = Math.random()
 	@observable obj
 	@observable qty
 

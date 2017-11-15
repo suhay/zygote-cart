@@ -2,8 +2,16 @@ import React, { Component } from 'react'
 import { observer } from 'mobx-react'
 
 import CartState from '../stores/cart-state'
+import ProductList from '../stores/product-list'
 
 export default class Product extends React.Component {
+	constructor(props){
+		super(props)
+		this.removeProduct = this.removeProduct.bind(this)
+	}
+	removeProduct(){
+		ProductList.removeProduct(this.props.product.obj.id)
+	}
 	render() {
 		const editable = CartState.step !== 'confirmation' && CartState.step !== 'complete'
 		return <div className={`zygoteProduct ${editable ? 'zygoteEditable' : ''}`}>
@@ -24,7 +32,7 @@ export default class Product extends React.Component {
 			<div className='zygotePrice'>{this.props.product.formattedPrice}</div>
 
 			{editable &&
-				<div className='zygoteRemove'>×</div>
+				<div className='zygoteRemove' onClick={this.removeProduct}>×</div>
 			}
 
 			<style jsx>{`

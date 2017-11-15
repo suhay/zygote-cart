@@ -10,7 +10,7 @@ import Product from './product'
 			<div className='zygoteTable'>
 				<ul className='zygoteList'>
 					{productListStore.products.map(product => (
-						<li className='zygoteProd' key={product.id}>
+						<li className='zygoteProd' key={product.obj.id}>
 							<Product product={product} />
 						</li>
 					))}
