@@ -3,6 +3,7 @@ import ProductModel from './product'
 
 export default class ProductListModel {
 	@observable products = []
+	@observable totals = []
 
 	@computed
 	get productCount() {
@@ -34,6 +35,17 @@ export default class ProductListModel {
 		}
 	}
 
+	@action
+	modifyQuantity(id, qty){
+		let index = this.findProductIndex(id)
+		if(index !== false){
+			this.products[index].qty += qty
+			if (this.products[index].qty <= 0){
+				this.products[index].qty = 1
+			}
+		}
+	}
+
 	@computed
 	get totalQuantity() {
 		let qty = 0
@@ -41,6 +53,41 @@ export default class ProductListModel {
 			qty += product.qty
 		})
 		return qty
+	}
+
+	@computed
+	get subTotal(){
+		let price = 0
+		for(let i = this.products.length; i--;){
+			price += this.products[i].price
+		}
+		return price
+	}
+
+	@computed
+	get formattedSubTotal(){
+		return `$${this.subTotal.toFixed(2)}`
+	}
+
+	@computed
+	get formattedTotals(){
+		let totals = [{
+			label: 'Subtotal',
+			amount: this.formattedSubTotal
+		}]
+		let grandTotal = this.subTotal
+		this.totals.forEach(total => {
+			totals.push(Object.assign({}, {
+				label: total.label,
+				amount: `$${total.amount.toFixed(2)}`
+			}))
+			grandTotal += total.amount
+		})
+		totals.push({
+			label: 'Grand Total',
+			amount: `$${grandTotal.toFixed(2)}`
+		})
+		return totals
 	}
 
 	findProductIndex(id){

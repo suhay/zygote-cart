@@ -5,8 +5,13 @@ export default class ProductModel {
 	@observable qty
 
 	@computed
+	get price(){
+		return this.obj.price * this.qty
+	}
+
+	@computed
 	get formattedPrice(){
-		return `$${this.obj.price.toFixed(2)}`
+		return `$${this.price.toFixed(2)}`
 	}
 
 	constructor(obj, qty) {
