@@ -63,6 +63,10 @@ import Totals from './totals'
 						.zygoteTableHeader{
 							display: block;
 							width: 860px;
+							font-size: .8em;
+							border-bottom: 1px solid #ccc;
+							margin-bottom: 15px;
+							padding-bottom: 10px;
 						}
 						.zygoteTableHeader:after{
 							content: '';

@@ -22,7 +22,12 @@ module.exports = {
 	module: {
 		rules: [{
 			test: /\.js?$/,
-			use: ['babel-loader'],
+			use: [{
+				loader: 'babel-loader',
+				options: {
+					plugins: ['babel-plugin-remove-template-whitespace']
+				}
+			}],
 			include: path.join(__dirname, 'src')
 		}]
 	}
