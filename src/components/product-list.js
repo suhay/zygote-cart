@@ -49,15 +49,30 @@ import Totals from './totals'
 					.zygoteTableHeader{
 						display: none;
 					}
-					.zygoteTableHeader:after{
-						content: '';
-						display: block;
-						clear: both;
+					@media(min-width: 900px){
+						.zygoteTableHeader{
+							display: block;
+							width: 860px;
+						}
+						.zygoteTableHeader:after{
+							content: '';
+							display: block;
+							clear: both;
+						}
+						.zygoteItemHeader{
+							width: 510px;
+						}
+						.zygoteItemHeader, .zygoteQtyHeader, .zygotePriceHeader{
+							float: left;
+						}
+						.zygoteQtyHeader, .zygotePriceHeader{
+							width: 120px;
+							text-align: right;
+						}
+						.zygoteDelHeader{
+							float: right;
+						}
 					}
-					.zygoteTableHeader div{
-						float: left;
-					}
-
 				`}</style>
 			</div>
 		)

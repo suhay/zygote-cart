@@ -158,7 +158,7 @@ export default @observer class Product extends React.Component {
 						width: 300px;
 					}
 					.zygoteInfo{
-						width: 550px;
+						width: 510px;
 					}
 					.zygoteQty{
 						width: 120px;
