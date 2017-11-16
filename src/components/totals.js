@@ -16,7 +16,7 @@ import productListStore from '../stores/product-list'
 						<div>{total.amount}</div>
 					</li>
 				})}
-				<style jsx>{`
+				<style jsx global>{`
 					.zygoteTotals{
 						list-style-type: none;
 						padding: 0;

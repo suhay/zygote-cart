@@ -18,12 +18,6 @@ export default @observer class Cart extends React.Component {
 						</div>
 					</Container>
 				}
-				<style jsx>{`
-					.zygoteRoot{
-						font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-						text-rendering: optimizeLegibility;
-					}
-				`}</style>
 				<style jsx global>{`
 					.zygoteRoot,
 					.zygoteRoot:before,
@@ -32,6 +26,10 @@ export default @observer class Cart extends React.Component {
 					.zygoteRoot *:before,
 					.zygoteRoot *:after {
 						box-sizing: inherit;
+					}
+					.zygoteRoot{
+						font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+						text-rendering: optimizeLegibility;
 					}
 					.zygoteRoot a{
 						-webkit-tap-highlight-color: rgba(0,0,0,0);

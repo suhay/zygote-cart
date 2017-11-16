@@ -61,13 +61,13 @@ export default @observer class Product extends React.Component {
 				</div>
 			}
 
-			<style jsx>{`
+			<style jsx global>{`
 				.zygoteProduct:after{
 					content: '';
 					display: block;
 					clear: both;
 				}
-				strong, span{
+				.zygoteCopy strong, .zygoteCopy span{
 					display: block;
 				}
 				.zygoteRemove{

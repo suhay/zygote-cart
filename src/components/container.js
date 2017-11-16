@@ -34,7 +34,7 @@ export default class Container extends React.Component {
 						</div>
 					}
 				</div>
-				<style jsx>{`
+				<style jsx global>{`
 					.zygoteContainer{
 						position: fixed;
 						top: 0;

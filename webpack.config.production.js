@@ -10,11 +10,21 @@ module.exports = {
 	output: {
 		path: path.join(__dirname, 'dist'),
 		filename: 'bundle.js',
-		publicPath: '/'
+		publicPath: '/static/'
 	},
 	plugins: [
-		new webpack.HotModuleReplacementPlugin(),
-		//new BundleAnalyzerPlugin()
+		//new BundleAnalyzerPlugin(),
+		new webpack.optimize.UglifyJsPlugin({
+			minimize: true,
+			compress: {
+				warnings: false,
+				drop_console: true,
+				screw_ie8: true
+			},
+			output: {
+				comments: false
+			}
+		})
 	],
 	resolve: {
 		extensions: ['.js', '.jsx']

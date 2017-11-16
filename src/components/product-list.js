@@ -33,7 +33,7 @@ import Totals from './totals'
 					:
 					<div className='zygoteEmpty'>Your cart is currently empty.</div>
 				}
-				<style jsx>{`
+				<style jsx global>{`
 					.zygoteTable{
 						padding: 20px;
 					}
