@@ -11,25 +11,35 @@ import Totals from './totals'
 		const editable = CartState.step !== 'confirmation' && CartState.step !== 'complete'
 		return (
 			<div className={`zygoteTable ${editable ? 'zygoteTableEditable' : ''}`}>
-				<div className='zygoteTableHeader'>
-					<div className='zygoteItemHeader'>Item</div>
-					<div className='zygoteQtyHeader'>Quantity</div>
-					<div className='zygotePriceHeader'>Price</div>
-					{editable &&
-						<div className='zygoteDelHeader'>Remove</div>
-					}
-				</div>
-				<ul className='zygoteList'>
-					{productListStore.products.map(product => (
-						<li className='zygoteProd' key={product.obj.id}>
-							<Product product={product} />
-						</li>
-					))}
-				</ul>
-				<Totals />
+				{productListStore.products.length ?
+					<div>
+						<div className='zygoteTableHeader'>
+							<div className='zygoteItemHeader'>Item</div>
+							<div className='zygoteQtyHeader'>Quantity</div>
+							<div className='zygotePriceHeader'>Price</div>
+							{editable &&
+								<div className='zygoteDelHeader'>Remove</div>
+							}
+						</div>
+						<ul className='zygoteList'>
+							{productListStore.products.map(product => (
+								<li className='zygoteProd' key={product.obj.id}>
+									<Product product={product} />
+								</li>
+							))}
+						</ul>
+						<Totals />
+					</div>
+					:
+					<div className='zygoteEmpty'>Your cart is currently empty.</div>
+				}
 				<style jsx>{`
 					.zygoteTable{
 						padding: 20px;
+					}
+					.zygoteEmpty{
+						text-align: center;
+						padding: 20px 0;
 					}
 					.zygoteList{
 						list-style-type: none;
