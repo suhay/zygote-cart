@@ -1,0 +1,56 @@
+import React from 'react'
+import { observer } from 'mobx-react'
+
+import CartState from '../stores/cart-state'
+
+export default @observer class extends React.Component {
+	render() {
+		const isCart = CartState.step === 'cart';
+		const isShipping = CartState.step === 'shipping';
+		const isPayment = CartState.step === 'billing';
+		const isConfirm = CartState.step === 'confirmation';
+
+		return (
+			<div className="zygoteTabs">
+				<ul className="zygoteTabsList">
+					<li className={"zygoteTabCart" + (isCart ? ' zygoteTabActive' : '')}>Your Cart</li>
+					<li className={"zygoteTabShipping" + (isShipping ? ' zygoteTabActive' : '')}>Shipping Address</li>
+					<li className={"zygoteTabPayment" + (isPayment ? ' zygoteTabActive' : '')}>Payment Method</li>
+					<li className={"zygoteTabConfirm" + (isConfirm ? ' zygoteTabActive' : '')}>Confirm Order</li>
+				</ul>
+				<style jsx global>{`
+					.zygoteTabsList {
+						box-sizing: border-box;
+						list-style: none;
+						margin: 0;
+						padding: 0;
+						font-size: 0.8em;
+						text-transform: uppercase;
+						user-select: none;
+						color: #666;
+					}
+
+					.zygoteTabCart, .zygoteTabShipping, .zygoteTabPayment, .zygoteTabConfirm {
+						box-sizing: inherit;
+						display: inline-block;
+						vertical-align: middle;
+						border-bottom: 1px solid #bbb;
+						border-right: 1px solid #bbb;
+						padding: 20px 0;
+						width: 25%;
+						text-align: center;
+						background: #ccc;
+						cursor: pointer;
+					}
+
+					.zygoteTabCart.zygoteTabActive, .zygoteTabShipping.zygoteTabActive, zygoteTabPayment.zygoteTabActive, zygoteTabConfirm.zygoteTabActive {
+						border-bottom: 0;
+						color: #000;
+						background: #fff;
+						cursor: default;
+					}
+				`}</style>
+			</div>
+		)
+	}
+}
