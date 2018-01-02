@@ -3,6 +3,7 @@ import { observer } from 'mobx-react'
 
 import Container from './container'
 import CartState from '../stores/cart-state'
+import CartTabs from './cart-tabs'
 import ProductList from './product-list'
 
 export default @observer class Cart extends React.Component {
@@ -11,6 +12,9 @@ export default @observer class Cart extends React.Component {
 			<div className='zygoteRoot'>
 				{CartState.isOpen &&
 					<Container>
+						<div className="zygoteTabs">
+							<CartTabs />
+						</div>
 						<div>
 							{CartState.step === 'cart' &&
 								<ProductList />
