@@ -12,9 +12,11 @@ export default @observer class Cart extends React.Component {
 			<div className='zygoteRoot'>
 				{CartState.isOpen &&
 					<Container>
-						<div className="zygoteTabs">
-							<CartTabs />
-						</div>
+						{CartState.step !== 'cart' &&
+							<div className="zygoteTabs">
+								<CartTabs />
+							</div>
+						}
 						<div>
 							{CartState.step === 'cart' &&
 								<ProductList />
