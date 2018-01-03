@@ -26,7 +26,7 @@ export default class extends React.Component {
 						font-size: 0.8em;
 						font-weight: 700;
 						color: ${settings.white};
-						background: ${settings.black};
+						background: ${settings.midGray};
 						cursor: pointer;
 						user-select: none;
 					}
