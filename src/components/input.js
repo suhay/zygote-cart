@@ -1,4 +1,5 @@
 import React from 'react'
+import settings from './_settings'
 
 export default class extends React.Component {
 	constructor(props) {
@@ -18,14 +19,14 @@ export default class extends React.Component {
 						display: block;
 						text-transform: uppercase;
 						font-size: 0.8em;
-						color: #000;
+						color: ${settings.black};
 						cursor: pointer;
 						user-select: none;
 					}
 
 					.zygoteInputField {
 						box-sizing: border-box;
-						border: 1px solid #ccc;
+						border: 1px solid ${settings.gray};
 						outline: none;
 						margin-top: 3px;
 						padding: 10px;

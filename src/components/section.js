@@ -1,4 +1,5 @@
 import React from 'react'
+import settings from './_settings'
 
 export default class extends React.Component {
 	render() {
@@ -9,7 +10,7 @@ export default class extends React.Component {
 				<style jsx global>{`
 					.zygoteSection {
 						display: table-cell;
-						border-right: 1px solid #ccc;
+						border-right: 1px solid ${settings.gray};
 						padding: 20px;
 					}
 					.zygoteSection.zygoteSectionLast {

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import settings from './_settings'
 
 import CartState from '../stores/cart-state'
 
@@ -45,7 +46,7 @@ export default class Container extends React.Component {
 						overfloow-x: auto;
 					}
 					.zygoteModal{
-						background-color: #fff;
+						background-color: ${settings.white};
 						max-width: 900px;
 						margin: 0 auto;
 						position: relative;
@@ -60,7 +61,7 @@ export default class Container extends React.Component {
 					}
 					.zygoteHeader{
 						padding: 20px;
-						background-color: #f7f7f7;
+						background-color: ${settings.offWhite};
 						text-transform: uppercase;
 
 					}
@@ -69,7 +70,7 @@ export default class Container extends React.Component {
 						margin: 0;
 					}
 					.zygoteSecurity{
-						background-color: #f7f7f7;
+						background-color: ${settings.offWhite};
 						text-align: center;
 						padding: 10px 0;
 						font-size: .8em;
@@ -90,7 +91,7 @@ export default class Container extends React.Component {
 					.zygoteSecurityLock, .zygoteSecurityMsg{
 						display: inline-block;
 					}
-					@media(min-width: 900px){
+					@media(min-width: ${settings.breakpoint}px){
 						.zygoteModal{
 							top: 30px;
 							margin-bottom: 30px;

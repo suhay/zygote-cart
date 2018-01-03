@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
+import settings from './_settings'
 
 import CartState from '../stores/cart-state'
 import ProductList from '../stores/product-list'
@@ -104,8 +105,8 @@ export default @observer class Product extends React.Component {
 				.zygoteDecrease, .zygoteIncrease{
 					font-weight: 400;
 					cursor: pointer;
-					background-color: #000;
-					color: #fff;
+					background-color: ${settings.black};
+					color: ${settings.white};
 					font-size: .9em;
 					border-radius: 100%;
 				}
@@ -128,7 +129,7 @@ export default @observer class Product extends React.Component {
 					text-decoration: none;
 				}
 
-				@media(min-width: 900px){
+				@media(min-width: ${settings.breakpoint}px){
 					.zygoteImg{
 						display: block;
 					}

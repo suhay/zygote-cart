@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
+import settings from './_settings'
 
 import CartState from '../stores/cart-state'
 import productListStore from '../stores/product-list'
@@ -22,20 +23,20 @@ import productListStore from '../stores/product-list'
 						padding: 0;
 						margin: 0;
 						text-align: center;
-						color: #666;
+						color: ${settings.darkGray};
 						font-size: .9em;
 					}
 					.zygoteTotals li{
-						border-top: 1px solid #ccc;
+						border-top: 1px solid ${settings.gray};
 						padding: 10px 0;
 					}
 					.zygoteTotals li:last-of-type {
-						border-bottom: 1px solid #ccc;
+						border-bottom: 1px solid ${settings.gray};
 					}
 					.zygoteTotals li div:first-of-type{
 						text-transform: uppercase;
 					}
-					@media(min-width:900px){
+					@media(min-width:${settings.breakpoint}px){
 						.zygoteTotals li:after{
 							content: '';
 							display: block;

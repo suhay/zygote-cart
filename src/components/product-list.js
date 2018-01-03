@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
 
+import settings from './_settings'
+
 import CartState from '../stores/cart-state'
 import productListStore from '../stores/product-list'
 import Product from './product'
@@ -66,12 +68,12 @@ import NextButton from './next-step-button'
 						padding: 20px 0;
 						text-align: right;
 					}
-					@media(min-width: 900px){
+					@media(min-width: ${settings.breakpoint}px){
 						.zygoteTableHeader{
 							display: block;
 							width: 860px;
 							font-size: .8em;
-							border-bottom: 1px solid #ccc;
+							border-bottom: 1px solid ${settings.gray};
 							margin-bottom: 15px;
 							padding-bottom: 10px;
 						}
