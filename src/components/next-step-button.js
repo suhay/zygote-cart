@@ -1,9 +1,14 @@
 import React from 'react'
 
+import CartState from '../stores/cart-state'
+
 export default class extends React.Component {
+	nextStep() {
+		CartState.nextStep();
+	}
 	render() {
 		return (
-			<button className="zygoteNextButton">
+			<button className="zygoteNextButton" onClick={this.nextStep}>
 				Next step
 				<style jsx global>{`
 					.zygoteNextButton {
