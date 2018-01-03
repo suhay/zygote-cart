@@ -25,6 +25,13 @@ export default class ProductModel {
 		this.step = steps[nextIndex];
 	}
 
+	@action goToStep(step) {
+		const index = steps.indexOf(step);
+		if (index !== -1) {
+			this.step = steps[index];
+		}
+	}
+
 	constructor() {
 		this.isOpen = false
 		this.step = steps[0]

@@ -4,6 +4,15 @@ import { observer } from 'mobx-react'
 import CartState from '../stores/cart-state'
 
 export default @observer class extends React.Component {
+	activateCartTab() {
+		CartState.goToStep('cart');
+	}
+	activateShippingTab() {
+		CartState.goToStep('shipping');
+	}
+	activatePaymentTab() {
+		CartState.goToStep('billing');
+	}
 	render() {
 		const isCart = CartState.step === 'cart';
 		const isShipping = CartState.step === 'shipping';
@@ -13,9 +22,9 @@ export default @observer class extends React.Component {
 		return (
 			<div className="zygoteTabs">
 				<ul className="zygoteTabsList">
-					<li className={"zygoteTabCart" + (isCart ? ' zygoteTabActive' : '')}>Your Cart</li>
-					<li className={"zygoteTabShipping" + (isShipping ? ' zygoteTabActive' : '')}>Shipping Address</li>
-					<li className={"zygoteTabPayment" + (isPayment ? ' zygoteTabActive' : '')}>Payment Method</li>
+					<li className={"zygoteTabCart" + (isCart ? ' zygoteTabActive' : '')} onClick={this.activateCartTab}>Your Cart</li>
+					<li className={"zygoteTabShipping" + (isShipping ? ' zygoteTabActive' : '')} onClick={this.activateShippingTab}>Shipping Address</li>
+					<li className={"zygoteTabPayment" + (isPayment ? ' zygoteTabActive' : '')} onClick={this.activatePaymentTab}>Payment Method</li>
 					<li className={"zygoteTabConfirm" + (isConfirm ? ' zygoteTabActive' : '')}>Confirm Order</li>
 				</ul>
 				<style jsx global>{`
