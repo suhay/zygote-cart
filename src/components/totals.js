@@ -29,6 +29,9 @@ import productListStore from '../stores/product-list'
 						border-top: 1px solid #ccc;
 						padding: 10px 0;
 					}
+					.zygoteTotals li:last-of-type {
+						border-bottom: 1px solid #ccc;
+					}
 					.zygoteTotals li div:first-of-type{
 						text-transform: uppercase;
 					}
