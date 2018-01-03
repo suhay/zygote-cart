@@ -3,5 +3,6 @@ module.exports = {
 
 	black: '#000',
 	white: '#fff',
-	gray: '#ccc'
+	gray: '#ccc',
+	darkGray: '#666'
 }
