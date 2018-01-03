@@ -12,11 +12,13 @@ export default class extends React.Component {
 				{this.props.value || 'Next Step'}
 				<style jsx global>{`
 					.zygoteNextButton {
+						box-sizing: border-box;
 						display: inline-block;
 						border: 0;
 						outline: 0;
 						padding: 13px 20px;
 						min-width: 130px;
+						max-width: 200px;
 						text-align: center;
 						text-transform: uppercase;
 						font-size: 0.8em;
