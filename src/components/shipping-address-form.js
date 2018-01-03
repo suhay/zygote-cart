@@ -4,6 +4,7 @@ import { observer } from 'mobx-react'
 import Section from './section'
 import Input from './input'
 import NextButton from './next-step-button'
+import PrevButton from './previous-step-button'
 
 import ShippingAddress from '../stores/shipping-address'
 
@@ -47,7 +48,7 @@ export default @observer class extends React.Component {
 					</Section>
 				</div>
 				<div className='zygoteShippingNextPrev'>
-					<div className='zygoteShippingPrevious'><NextButton /></div>
+					<div className='zygoteShippingPrevious'><PrevButton /></div>
 					<div className='zygoteShippingNext'><NextButton /></div>
 				</div>
 				<style jsx global>{`

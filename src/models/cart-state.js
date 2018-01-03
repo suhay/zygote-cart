@@ -25,6 +25,15 @@ export default class ProductModel {
 		this.step = steps[nextIndex];
 	}
 
+	@action prevStep() {
+		const currentIndex = steps.indexOf(this.step);
+		let nextIndex = 0;
+		if (currentIndex > 0) {
+			nextIndex = currentIndex - 1;
+		}
+		this.step = steps[nextIndex];
+	}
+
 	@action goToStep(step) {
 		const index = steps.indexOf(step);
 		if (index !== -1) {
