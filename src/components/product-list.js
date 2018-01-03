@@ -5,6 +5,7 @@ import CartState from '../stores/cart-state'
 import productListStore from '../stores/product-list'
 import Product from './product'
 import Totals from './totals'
+import NextButton from './next-step-button'
 
 @observer class ProductList extends React.Component {
 	render() {
@@ -29,6 +30,9 @@ import Totals from './totals'
 							))}
 						</ul>
 						<Totals />
+						<div className='zygoteNext'>
+							<NextButton />
+						</div>
 					</div>
 					:
 					<div className='zygoteEmpty'>Your cart is currently empty.</div>
@@ -50,7 +54,6 @@ import Totals from './totals'
 						position: relative;
 						padding-bottom: 30px;
 						margin-bottom: 30px;
-						border-bottom: 1px solid #ccc;
 					}
 					.zygoteProd:last-of-type{
 						margin-bottom: 0;
@@ -58,6 +61,10 @@ import Totals from './totals'
 					}
 					.zygoteTableHeader{
 						display: none;
+					}
+					.zygoteNext {
+						padding: 20px 0;
+						text-align: right;
 					}
 					@media(min-width: 900px){
 						.zygoteTableHeader{
