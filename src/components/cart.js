@@ -7,6 +7,7 @@ import CartState from '../stores/cart-state'
 import CartTabs from './cart-tabs'
 import ProductList from './product-list'
 import ShippingForm from './shipping-address-form'
+import PaymentForm from './payment-form'
 
 export default @observer class Cart extends React.Component {
 	render() {
@@ -25,6 +26,9 @@ export default @observer class Cart extends React.Component {
 							}
 							{CartState.step === 'shipping' &&
 								<ShippingForm />
+							}
+							{CartState.step === 'billing' &&
+								<PaymentForm />
 							}
 						</div>
 					</Container>
