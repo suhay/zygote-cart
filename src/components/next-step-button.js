@@ -9,7 +9,7 @@ export default class extends React.Component {
 	render() {
 		return (
 			<button className="zygoteNextButton" onClick={this.nextStep}>
-				Next step
+				{this.props.value || 'Next Step'}
 				<style jsx global>{`
 					.zygoteNextButton {
 						display: inline-block;
