@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
+import settings from './_settings'
 
 import Container from './container'
 import CartState from '../stores/cart-state'
@@ -43,6 +44,15 @@ export default @observer class Cart extends React.Component {
 					}
 					.zygoteRoot a{
 						-webkit-tap-highlight-color: rgba(0,0,0,0);
+					}
+					.zygoteTabs {
+						display: none;
+					}
+
+					@media (min-width: ${settings.breakpoint}px) {
+						.zygoteTabs {
+							display: block;
+						}
 					}
 				`}</style>
 			</div>
