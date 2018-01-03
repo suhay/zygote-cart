@@ -3,6 +3,8 @@ import settings from './_settings'
 
 export default class extends React.Component {
 	render() {
+		const rowLength = parseInt(this.props.rowLength) ? parseInt(this.props.rowLength) : 3;
+		const width = (100/rowLength);
 		return (
 			<div className={"zygoteSection" + (this.props.isLast ? ' zygoteSectionLast' : '')}>
 				{this.props.children}
@@ -16,8 +18,7 @@ export default class extends React.Component {
 						.zygoteSection {
 							display: table-cell;
 							border-right: 1px solid ${settings.gray};
-							width: 33.333%; /* fallback */
-							width: calc(1/3);
+							width: ${width}%;
 						}
 
 						.zygoteSection.zygoteSectionLast {
