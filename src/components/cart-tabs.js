@@ -22,9 +22,9 @@ export default @observer class extends React.Component {
 		return (
 			<div className="zygoteTabs">
 				<ul className="zygoteTabsList">
-					<li className={"zygoteTabCart" + (isCart ? ' zygoteTabActive' : '')} onClick={this.activateCartTab}>Your Cart</li>
-					<li className={"zygoteTabShipping" + (isShipping ? ' zygoteTabActive' : '')} onClick={this.activateShippingTab}>Shipping Address</li>
-					<li className={"zygoteTabPayment" + (isPayment ? ' zygoteTabActive' : '')} onClick={this.activatePaymentTab}>Payment Method</li>
+					<li className={"zygoteTabCart" + (isCart ? ' zygoteTabActive' : '')} onClick={this.activateCartTab} role="button">Your Cart</li>
+					<li className={"zygoteTabShipping" + (isShipping ? ' zygoteTabActive' : '')} onClick={this.activateShippingTab} role="button">Shipping Address</li>
+					<li className={"zygoteTabPayment" + (isPayment ? ' zygoteTabActive' : '')} onClick={this.activatePaymentTab} role="button">Payment Method</li>
 					<li className={"zygoteTabConfirm" + (isConfirm ? ' zygoteTabActive' : '')}>Confirm Order</li>
 				</ul>
 				<style jsx global>{`
