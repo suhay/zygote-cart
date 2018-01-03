@@ -53,7 +53,7 @@ export default @observer class extends React.Component {
 						cursor: pointer;
 					}
 
-					.zygoteTabCart.zygoteTabActive, .zygoteTabShipping.zygoteTabActive, zygoteTabPayment.zygoteTabActive, zygoteTabConfirm.zygoteTabActive {
+					.zygoteTabCart.zygoteTabActive, .zygoteTabShipping.zygoteTabActive, .zygoteTabPayment.zygoteTabActive, .zygoteTabConfirm.zygoteTabActive {
 						border-bottom: 0;
 						color: ${settings.black};
 						background: ${settings.white};
