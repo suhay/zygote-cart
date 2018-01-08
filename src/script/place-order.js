@@ -60,6 +60,7 @@ module.exports = function(obj){
 	for(let i in this.custom){
 		input[i] = this.custom[i]
 	}
+	console.log('INPUT', input)
 	const json = JSON.stringify(input)
 	xhr.send(json)
 }

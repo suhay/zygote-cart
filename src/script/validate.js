@@ -100,28 +100,35 @@ module.exports = function(obj){
 				classList.remove(this.els.adjustments, 'zygoteShow')
 			}
 			// Add shipping options
+			let foundShippingOptions = false
 			if (obj.shippingOptions) {
-				classList.add(this.els.shipOptionLine, 'zygoteShow')
-				let els = []
-				for(let i = 0; i < obj.shippingOptions.length; i++){
-					let checked = !i ? 'checked' : ''
-					els[i] = `
-						<label>
-							<input type="radio" name="shippingOption" value="${i}" data-price="${obj.shippingOptions[i].amount}" ${checked} /> ${obj.shippingOptions[i].name} ($${obj.shippingOptions[i].amount})
-						</label>
-					`
-				}
-				this.els.shippingInputs.innerHTML = els.join('')
-				els = this.els.shippingInputs.querySelectorAll('input')
-				for(let i = els.length; i--;){
-					els[i].addEventListener('change', e => {
-						let shippingPrice = Number(e.target.getAttribute('data-price'))
-						this.els.ship.textContent = formatUsd(shippingPrice)
-						this.els.total.textContent = formatUsd(obj.total + shippingPrice)
-					})
+				let location = Object.keys(obj.shippingOptions)[0]
+				if (location && obj.shippingOptions[location].length) {
+					foundShippingOptions = true
+					classList.add(this.els.shipOptionLine, 'zygoteShow')
+
+					let shippingOptions = obj.shippingOptions[location]
+					let els = []
+					for (let i = 0; i < shippingOptions.length; i++) {
+						let checked = !i ? 'checked' : ''
+						els[i] = `
+							<label>
+								<input type="radio" name="shippingOption" value="${i}" data-location="${location}" data-price="${shippingOptions[i].amount}" ${checked} /> ${shippingOptions[i].name} ($${shippingOptions[i].amount})
+							</label>
+						`
+					}
+					this.els.shippingInputs.innerHTML = els.join('')
+					els = this.els.shippingInputs.querySelectorAll('input')
+					for (let i = els.length; i--;) {
+						els[i].addEventListener('change', e => {
+							let shippingPrice = Number(e.target.getAttribute('data-price'))
+							this.els.ship.textContent = formatUsd(shippingPrice)
+							this.els.total.textContent = formatUsd(obj.total + shippingPrice)
+						})
+					}
 				}
 			}
-			else{
+			if (!foundShippingOptions){
 				classList.remove(this.els.shipOptionLine, 'zygoteShow')
 			}
 			this.hideLoader()
@@ -130,6 +137,7 @@ module.exports = function(obj){
 	const input = this.getInput('billing')
 	input.products = this.products
 	const json = JSON.stringify(input)
+	console.log('SENDING:', json)
 	xhr.send(json)
 }
 
