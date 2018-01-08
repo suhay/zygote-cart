@@ -175,6 +175,18 @@
 	}
 }
 
+.zygoteShipOptionLine{
+	& h4{
+		margin-bottom: 10px;
+	}
+}
+.zygoteShippingInputs{
+	& label{
+		margin-top: 5px;
+		display: block;
+	}
+}
+
 .zygoteOn4, .zygoteOn5{
 	& .zygoteShipLine, & .zygoteTaxLine, & .zygoteTotalLine{
 		display: block;

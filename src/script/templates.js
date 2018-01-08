@@ -238,6 +238,12 @@ exports.cart = () => {
 							<input type="text" name="couponCode" id="zygoteCouponCode" placeholder="Coupon Code" />
 						</li>
 					</ul>
+
+					<div class="zygoteShipOptionLine">
+						<h4>Shipping Options</h4>
+						<div class="zygoteShippingInputs"></div>
+					</div>
+
 					<ul class="zygoteAdjLine"></ul>
 					<ul class="zygoteSubLine">
 						<li class="zygoteSubHead">Subtotal</li>

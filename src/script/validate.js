@@ -56,7 +56,7 @@ module.exports = function(obj){
 			const obj = JSON.parse(xhr.responseText)
 			console.log('API response:')
 			console.log(obj)
-			// Set any custom viriables
+			// Set any custom variables
 			for(let i in obj){
 				if(expectedProperties.indexOf(i) === -1){
 					this.custom[i] = obj[i]
@@ -88,6 +88,7 @@ module.exports = function(obj){
 				this.els.ship.textContent = formatUsd(obj.shipping)
 			}
 			if(obj.total){
+				obj.totalNoShipping = obj.total - obj.shipping
 				this.els.total.textContent = formatUsd(obj.total)
 			}
 			// Add adjustments
@@ -97,6 +98,31 @@ module.exports = function(obj){
 			}
 			else{
 				classList.remove(this.els.adjustments, 'zygoteShow')
+			}
+			// Add shipping options
+			if (obj.shippingOptions) {
+				classList.add(this.els.shipOptionLine, 'zygoteShow')
+				let els = []
+				for(let i = 0; i < obj.shippingOptions.length; i++){
+					let checked = !i ? 'checked' : ''
+					els[i] = `
+						<label>
+							<input type="radio" name="shippingOption" value="${i}" data-price="${obj.shippingOptions[i].amount}" ${checked} /> ${obj.shippingOptions[i].name} ($${obj.shippingOptions[i].amount})
+						</label>
+					`
+				}
+				this.els.shippingInputs.innerHTML = els.join('')
+				els = this.els.shippingInputs.querySelectorAll('input')
+				for(let i = els.length; i--;){
+					els[i].addEventListener('change', e => {
+						let shippingPrice = Number(e.target.getAttribute('data-price'))
+						this.els.ship.textContent = formatUsd(shippingPrice)
+						this.els.total.textContent = formatUsd(obj.total + shippingPrice)
+					})
+				}
+			}
+			else{
+				classList.remove(this.els.shipOptionLine, 'zygoteShow')
 			}
 			this.hideLoader()
 		}
