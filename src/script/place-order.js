@@ -13,7 +13,6 @@ module.exports = function(obj){
 	xhr.onload = () => {
 		if(xhr.readyState == 4 && xhr.status == '200'){
 			const obj = JSON.parse(xhr.responseText)
-			console.log(obj)
 			if(obj.products && obj.success){
 				// Change price/qty but not any other info
 				for(let i = this.products.length; i--;){

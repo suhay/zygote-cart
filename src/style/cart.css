@@ -176,6 +176,7 @@
 }
 
 .zygoteShipOptionLine{
+	display: none;
 	& h4{
 		margin-bottom: 10px;
 	}
@@ -187,14 +188,13 @@
 	}
 }
 
-.zygoteOn5{
-	& .zygoteShipOptionLine{
-		display: none;
-	}
-}
-
 .zygoteOn4, .zygoteOn5{
 	& .zygoteShipLine, & .zygoteTaxLine, & .zygoteTotalLine{
+		display: block;
+	}
+}
+.zygoteOn4{
+	& .zygoteShipOptionLine.zygoteShow{
 		display: block;
 	}
 }

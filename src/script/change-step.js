@@ -37,6 +37,16 @@ module.exports = function(n, noProcess){
 		}
 	}
 
+	// If not on validation
+	if(this.step !== 4){
+		this.shippingOptions = false
+		this.shippingOption = false
+	}
+	// If not on validation or confirmation
+	if(this.step !== 4 && this.step !== 5){
+		delete this.custom.cartId
+	}
+
 	// If on shipping
 	if(this.step === 2){
 		if(this.googleAnalytics && 'ga' in window){
