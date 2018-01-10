@@ -117,18 +117,24 @@ module.exports = function(obj){
 							</label>
 						`
 					}
+					console.log('Rendering shipping options...')
 					this.els.shippingInputs.innerHTML = els.join('')
 					els = this.els.shippingInputs.querySelectorAll('input')
 					for (let i = els.length; i--;) {
+
+						// On shipping option select
 						els[i].addEventListener('change', e => {
-							let shippingPrice = Number(e.target.getAttribute('data-price'))
-							this.els.ship.textContent = formatUsd(shippingPrice)
-							this.els.total.textContent = formatUsd(obj.total + shippingPrice)
+							//let shippingPrice = Number(e.target.getAttribute('data-price'))
+							//this.els.ship.textContent = formatUsd(shippingPrice)
+							//this.els.total.textContent = formatUsd(obj.totalNoShipping + shippingPrice)
+							this.changeStep(this.step)
 						})
+
 					}
 				}
 			}
 			if (!foundShippingOptions){
+				console.log('Clearing rendered shipping options...')
 				classList.remove(this.els.shipOptionLine, 'zygoteShow')
 			}
 			this.hideLoader()
@@ -136,6 +142,10 @@ module.exports = function(obj){
 	}
 	const input = this.getInput('billing')
 	input.products = this.products
+	console.log('CUSTOM:', this.custom)
+	if (input.shippingOption && this.custom.cartId) {
+		input.cartId = this.custom.cartId
+	}
 	const json = JSON.stringify(input)
 	console.log('SENDING:', json)
 	xhr.send(json)

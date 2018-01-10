@@ -187,6 +187,12 @@
 	}
 }
 
+.zygoteOn5{
+	& .zygoteShipOptionLine{
+		display: none;
+	}
+}
+
 .zygoteOn4, .zygoteOn5{
 	& .zygoteShipLine, & .zygoteTaxLine, & .zygoteTotalLine{
 		display: block;

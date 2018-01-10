@@ -16,15 +16,19 @@ module.exports = function(excludePrefix){
 	}
 	// Shipping hack
 	let shipping = this.els.shippingInputs.querySelectorAll('input')
+	console.log(shipping)
+	console.log('Finding shipping input...')
 	if (shipping.length){
+		console.log('Found shipping input...')
 		for(let i = shipping.length; i--;){
 			if(shipping[i].checked){
 				let location = shipping[i].getAttribute('data-location')
 				if(location){
-					if(!obj.shippingOptions){
-						obj.shippingOptions = {}
+					if(!obj.shippingOption){
+						obj.shippingOption = {}
 					}
-					obj.shippingOptions[location] = shipping[i].value
+					obj.shippingOption[location] = shipping[i].value
+					console.log(`Setting shipping option for ${location} to ${obj.shippingOption[location]}`)
 				}
 			}
 		}
@@ -32,5 +36,6 @@ module.exports = function(excludePrefix){
 	for (let i in this.properties) {
 		obj[i] = this.properties[i]
 	}
+	console.log('INPUT', JSON.stringify(obj, null, 3))
 	return obj
 }

@@ -60,7 +60,9 @@ module.exports = function(obj){
 	for(let i in this.custom){
 		input[i] = this.custom[i]
 	}
-	console.log('INPUT', input)
+	input.shippingOptions = input.shippingOption
+	delete input.shippingOption
+	console.log('Sending:', JSON.stringify(input, null, 3))
 	const json = JSON.stringify(input)
 	xhr.send(json)
 }
