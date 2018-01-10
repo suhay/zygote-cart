@@ -102,7 +102,7 @@ module.exports = function(obj){
 			// Add shipping options
 			let foundShippingOptions = false
 			if(this.shippingOptions) obj.shippingOptions = this.shippingOptions
-			if (this.properties.site == 'pingpong') {
+			if (this.properties.site == 'goalrilla') {
 				if (obj.shippingOptions) {
 					this.shippingOptions = obj.shippingOptions
 					let location = Object.keys(obj.shippingOptions)[0]
