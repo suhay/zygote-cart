@@ -68,7 +68,9 @@ export default @observer class extends React.Component {
 				</div>
 				<style jsx global>{`
 					.zygotePaymentForm, .zygoteBillingAddressForm {
+						box-sizing: border-box;
 						display: table;
+						width: 100%;
 						padding: 20px 0;
 					}
 					.zygotePaymentInput {

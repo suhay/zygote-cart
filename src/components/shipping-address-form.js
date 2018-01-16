@@ -53,7 +53,9 @@ export default @observer class extends React.Component {
 				</div>
 				<style jsx global>{`
 					.zygoteShipping {
+						box-sizing: border-box;
 						display: table;
+						width: 100%;
 						padding: 20px 0;
 					}
 					.zygoteShippingInput {
