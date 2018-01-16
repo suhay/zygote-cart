@@ -13,7 +13,7 @@ export default @observer class extends React.Component {
 		return (
 			<div className="zygoteShipping">
 				<div className="zygoteShippingForm">
-					<Section>
+					<Section rowLength="3">
 						<div className="zygoteShippingInput">
 							<Input label="First Name" handleChange={ShippingAddress.setFirstName} value={ShippingAddress.firstName} />
 						</div>
@@ -27,7 +27,7 @@ export default @observer class extends React.Component {
 							<Input label="Street Address 2 (not required)" handleChange={ShippingAddress.setStreetAddressTwo} />
 						</div>
 					</Section>
-					<Section>
+					<Section rowLength="3">
 						<div className="zygoteShippingInput">
 							<Input label="City" handleChange={ShippingAddress.setCity} />
 						</div>
@@ -38,7 +38,7 @@ export default @observer class extends React.Component {
 							<Input label="Zip / Postal Code" handleChange={ShippingAddress.setZip} />
 						</div>
 					</Section>
-					<Section isLast="true">
+					<Section rowLength="3" isLast="true">
 						<div className="zygoteShippingInput">
 							<Input label="Phone" handleChange={ShippingAddress.setPhone} />
 						</div>
