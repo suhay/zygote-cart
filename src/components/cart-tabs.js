@@ -41,6 +41,7 @@ export default @observer class extends React.Component {
 					}
 
 					.zygoteTabCart, .zygoteTabShipping, .zygoteTabPayment, .zygoteTabConfirm {
+						position: relative;
 						box-sizing: inherit;
 						display: inline-block;
 						vertical-align: middle;
@@ -51,6 +52,33 @@ export default @observer class extends React.Component {
 						text-align: center;
 						background: ${settings.gray};
 						cursor: pointer;
+					}
+
+					.zygoteTabCart:before, .zygoteTabShipping:before, .zygoteTabPayment:before, .zygoteTabConfirm:before {
+						content: '';
+						position: relative;
+						top: 10px;
+						display: inline-block;
+						vertical-align: inherit;
+						margin-right: 1rem;
+						width: 20px;
+						height: 20px;
+						background-size: 100%;
+						background-repeat: no-repeat;
+						transform: translateY(-50%);
+					}
+
+					.zygoteTabCart:before {
+						background-image: url('/static/cart.png');
+					}
+					.zygoteTabShipping:before {
+						background-image: url('/static/truck.png');
+					}
+					.zygoteTabPayment:before {
+						background-image: url('/static/card.png');
+					}
+					.zygoteTabConfirm:before {
+						background-image: url('/static/check.png');
 					}
 
 					.zygoteTabCart.zygoteTabActive, .zygoteTabShipping.zygoteTabActive, .zygoteTabPayment.zygoteTabActive, .zygoteTabConfirm.zygoteTabActive {
