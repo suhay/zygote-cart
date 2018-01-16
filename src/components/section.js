@@ -3,10 +3,10 @@ import settings from './_settings'
 
 export default class extends React.Component {
 	render() {
-		const rowLength = parseInt(this.props.rowLength) ? parseInt(this.props.rowLength) : 3;
-		const width = (100/rowLength);
+		const lengthClass = ` zygoteSection${this.props.rowLength || 1}`
+		const lastClass = this.props.isLast ? ' zygoteSectionLast' : '';
 		return (
-			<div className={"zygoteSection" + (this.props.isLast ? ' zygoteSectionLast' : '')}>
+			<div className={"zygoteSection" + lengthClass + lastClass}>
 				{this.props.children}
 				<style jsx global>{`
 					.zygoteSection {
@@ -18,13 +18,20 @@ export default class extends React.Component {
 						.zygoteSection {
 							display: table-cell;
 							border-right: 1px solid ${settings.gray};
-							width: ${width}%;
 						}
 
 						.zygoteSection.zygoteSectionLast {
 							border-right: 0;
 						}
 
+						.zygoteSection.zygoteSection2 {
+							width: 50%;
+						}
+
+						.zygoteSection.zygoteSection3 {
+							width: 33%;
+							width: calc(100% / 3);
+						}
 					}
 				`}</style>
 			</div>
