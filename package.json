@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "webpack-dev-server --hot --open",
-    "build": "webpack -p --optimize-minimize --config webpack.config.production.js && cp index.html dist/index.html"
+    "build": "webpack -p --optimize-minimize --config webpack.config.production.js && cp index.html dist/index.html && cp -r static dist/static"
   },
   "devDependencies": {
     "babel-core": "^6.9.1",
