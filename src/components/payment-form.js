@@ -65,6 +65,10 @@ export default @observer class extends React.Component {
 						</div>
 					</Section>
 				</div>
+				<div className='zygoteShippingNextPrev'>
+					<div className='zygoteShippingPrevious'><PrevButton /></div>
+					<div className='zygoteShippingNext'><NextButton /></div>
+				</div>
 				<style jsx global>{`
 					.zygotePaymentForm, .zygoteBillingAddressForm {
 						box-sizing: border-box;
@@ -74,6 +78,22 @@ export default @observer class extends React.Component {
 					}
 					.zygotePaymentInput {
 						margin-bottom: 20px;
+					}
+					.zygoteShippingNextPrev {
+						box-sizing: border-box;
+						width: 100%;
+						padding: 20px;
+					}
+					.zygoteShippingNext, .zygoteShippingPrevious {
+						display: inline-block;
+						vertical-align: middle;
+						width: 50%;
+					}
+					.zygoteShippingPrevious {
+						text-align: left;
+					}
+					.zygoteShippingNext {
+						text-align: right;
 					}
 				`}</style>
 			</div>
