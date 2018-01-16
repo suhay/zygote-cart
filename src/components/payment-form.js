@@ -31,8 +31,7 @@ export default @observer class extends React.Component {
 					</Section>
 					<Section rowLength="3">
 						<div className="zygotePaymentInput">
-							<Input type="checkbox" handleChange={Payment.setUseShippingAddress} value={Payment.useShippingAddress} />
-							Billing address same as shipping
+							<Input type="checkbox" label="Billing address same as shipping" handleChange={Payment.setUseShippingAddress} value={Payment.useShippingAddress} />
 						</div>
 					</Section>
 				</div>
