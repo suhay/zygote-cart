@@ -19,8 +19,8 @@ export default class extends React.Component {
 						border: 0;
 						outline: 0;
 						padding: 13px 20px;
+						width: 100%;
 						min-width: 130px;
-						max-width: 200px;
 						text-align: center;
 						text-transform: uppercase;
 						font-size: 0.8em;
@@ -29,6 +29,12 @@ export default class extends React.Component {
 						background: ${settings.black};
 						cursor: pointer;
 						user-select: none;
+					}
+
+					@media (min-width: ${settings.breakpoint}px) {
+						.zygoteNextButton {
+							max-width: 200px;
+						}
 					}
 				`}</style>
 			</button>
