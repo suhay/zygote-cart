@@ -12,7 +12,7 @@ export default class extends React.Component {
 	render() {
 		return (
 			<label className="zygoteInput">
-				{this.props.label}
+				<label for={this.props.name} className="zygoteInputLabel">{this.props.label}</label>
 				<input className="zygoteInputField" type={this.props.type || 'text'} name={this.props.name} maxLength={this.props.maxLength} onChange={this.handleChange} value={this.props.value} />
 				<style jsx global>{`
 					.zygoteInput {
@@ -24,6 +24,10 @@ export default class extends React.Component {
 						user-select: none;
 					}
 
+					.zygoteInputLabel {
+						font-size: 0.8rem;
+					}
+
 					.zygoteInputField {
 						box-sizing: border-box;
 						border: 1px solid ${settings.gray};
@@ -33,6 +37,14 @@ export default class extends React.Component {
 						width: 100%;
 						height: 40px;
 						font-size: 1em;
+					}
+
+					.zygoteInputField[type="checkbox"] {
+						display: inline-block;
+						float: left;
+						margin-right: 0.5rem;
+						width: auto;
+						height: auto;
 					}
 				`}</style>
 			</label>
