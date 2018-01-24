@@ -8,6 +8,7 @@ import CartTabs from './cart-tabs'
 import ProductList from './product-list'
 import ShippingForm from './shipping-address-form'
 import PaymentForm from './payment-form'
+import ConfirmationList from './confirmation-list'
 
 export default @observer class Cart extends React.Component {
 	render() {
@@ -29,6 +30,9 @@ export default @observer class Cart extends React.Component {
 							}
 							{CartState.step === 'billing' &&
 								<PaymentForm />
+							}
+							{CartState.step === 'confirmation' &&
+								<ConfirmationList />
 							}
 						</div>
 					</Container>
