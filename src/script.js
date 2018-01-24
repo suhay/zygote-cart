@@ -6,8 +6,7 @@ function Cart(){
 	this.findQty()
 	this.inject()
 	this.readCookie()
-	this.findButtons()
-	this.findIcons()
+	this.eventDeligation()
 	this.changeStep(1)
 	return this
 }
@@ -19,8 +18,7 @@ Cart.prototype = {
 	body: document.getElementsByTagName('body')[0],
 
 	inject: require('./script/inject'),
-	findButtons: require('./script/find-buttons'),
-	findIcons: require('./script/find-icons'),
+	eventDeligation: require('./script/event-deligation'),
 	findQty: require('./script/find-qty'),
 	add: require('./script/add'),
 	remove: require('./script/remove'),
