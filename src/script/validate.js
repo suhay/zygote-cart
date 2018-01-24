@@ -102,57 +102,57 @@ module.exports = function(obj){
 			// Add shipping options
 			let foundShippingOptions = false
 			if(this.shippingOptions) obj.shippingOptions = this.shippingOptions
-			if (this.properties.site == 'goalrilla') {
-				if (obj.shippingOptions) {
-					this.shippingOptions = obj.shippingOptions
-					let location = Object.keys(obj.shippingOptions)[0]
-					if (location && obj.shippingOptions[location].length) {
-						foundShippingOptions = true
-						classList.add(this.els.shipOptionLine, 'zygoteShow')
-						let shippingOptions = obj.shippingOptions[location]
-						let els = []
-						for (let i = 0; i < shippingOptions.length; i++) {
-							let checked = ''
-							if(this.shippingOption && this.shippingOption[location]){
-								if (this.shippingOption[location] === i) checked = 'checked'
-							}
-							else if(!i){
-								checked = 'checked'
-							}
-							els[i] = `
-								<label>
-									<input type="radio" name="shippingOption" value="${i}" data-location="${location}" data-price="${shippingOptions[i].amount}" ${checked} /> ${shippingOptions[i].name} ($${shippingOptions[i].amount})
-								</label>
-							`
+
+			if (obj.shippingOptions) {
+				this.shippingOptions = obj.shippingOptions
+				let location = Object.keys(obj.shippingOptions)[0]
+				if (location && obj.shippingOptions[location].length) {
+					foundShippingOptions = true
+					classList.add(this.els.shipOptionLine, 'zygoteShow')
+					let shippingOptions = obj.shippingOptions[location]
+					let els = []
+					for (let i = 0; i < shippingOptions.length; i++) {
+						let checked = ''
+						if(this.shippingOption && this.shippingOption[location]){
+							if (this.shippingOption[location] === i) checked = 'checked'
 						}
-						console.log('Rendering shipping options...')
-						this.els.shippingInputs.innerHTML = els.join('')
-						els = this.els.shippingInputs.querySelectorAll('input')
-						for (let i = els.length; i--;) {
-
-							// On shipping option select
-							els[i].addEventListener('change', e => {
-								const location = e.target.getAttribute('data-location')
-								const num = Number(e.target.getAttribute('value'))
-
-								if(!this.shippingOption){
-									this.shippingOption = {}
-								}
-								this.shippingOption[location] = num
-								//let shippingPrice = Number(e.target.getAttribute('data-price'))
-								//this.els.ship.textContent = formatUsd(shippingPrice)
-								//this.els.total.textContent = formatUsd(obj.totalNoShipping + shippingPrice)
-								this.changeStep(this.step)
-							})
-
+						else if(!i){
+							checked = 'checked'
 						}
+						els[i] = `
+							<label>
+								<input type="radio" name="shippingOption" value="${i}" data-location="${location}" data-price="${shippingOptions[i].amount}" ${checked} /> ${shippingOptions[i].name} ($${shippingOptions[i].amount})
+							</label>
+						`
+					}
+					console.log('Rendering shipping options...')
+					this.els.shippingInputs.innerHTML = els.join('')
+					els = this.els.shippingInputs.querySelectorAll('input')
+					for (let i = els.length; i--;) {
+
+						// On shipping option select
+						els[i].addEventListener('change', e => {
+							const location = e.target.getAttribute('data-location')
+							const num = Number(e.target.getAttribute('value'))
+
+							if(!this.shippingOption){
+								this.shippingOption = {}
+							}
+							this.shippingOption[location] = num
+							//let shippingPrice = Number(e.target.getAttribute('data-price'))
+							//this.els.ship.textContent = formatUsd(shippingPrice)
+							//this.els.total.textContent = formatUsd(obj.totalNoShipping + shippingPrice)
+							this.changeStep(this.step)
+						})
+
 					}
 				}
-				if (!foundShippingOptions) {
-					console.log('Clearing rendered shipping options...')
-					classList.remove(this.els.shipOptionLine, 'zygoteShow')
-				}
 			}
+			if (!foundShippingOptions) {
+				console.log('Clearing rendered shipping options...')
+				classList.remove(this.els.shipOptionLine, 'zygoteShow')
+			}
+
 			this.hideLoader()
 		}
 	}
