@@ -31,11 +31,12 @@ export default @observer class extends React.Component {
 					</Section>
 					<Section rowLength="3">
 						<div className="zygotePaymentInput">
-							<Input type="checkbox" label="Billing address same as shipping" handleChange={Payment.setUseShippingAddress} value={Payment.useShippingAddress} />
+							<Input type="checkbox" label="Billing address same as shipping" handleChange={Payment.setUseShippingAddress} checked={Payment.useShippingAddress} />
 						</div>
 					</Section>
 				</div>
-				<div className="zygoteBillingAddressForm">
+				{(!Payment.useShippingAddress) &&
+					<div className="zygoteBillingAddressForm">
 					<Section rowLength="2">
 						<div className="zygotePaymentInput">
 							<Input label="First Name" handleChange={Payment.setFirstName} value={Payment.firstName} />
@@ -64,7 +65,8 @@ export default @observer class extends React.Component {
 							<Input label="Phone" handleChange={Payment.setZip} />
 						</div>
 					</Section>
-				</div>
+					</div>
+				}
 				<div className='zygoteShippingNextPrev'>
 					<div className='zygoteShippingPrevious'><PrevButton /></div>
 					<div className='zygoteShippingNext'><NextButton /></div>
