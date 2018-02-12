@@ -12,8 +12,7 @@ module.exports = function(){
 		}
 
 		// Open cart icons
-		let cl = e.target.className.split(' ')
-		if (cl.indexOf('zygoteIco') !== -1) {
+		if (e.target.matches('.zygoteIco')) {
 			e.preventDefault()
 			this.open()
 		}
