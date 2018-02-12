@@ -12,7 +12,7 @@ module.exports = function(){
 		}
 
 		// Open cart icons
-		if (e.target.matches('.zygoteIco')) {
+		if (e.target.matches('.zygoteIco, .zygoteIco *')) {
 			e.preventDefault()
 			this.open()
 		}
