@@ -15,6 +15,12 @@ module.exports = function(obj){
 	else{
 		this.products.push(obj)
 	}
+
+	// Trigger event
+	if(this.onAdd){
+		this.onAdd()
+	}
+
 	this.update()
 	console.log(obj)
 	if(obj.openCart){

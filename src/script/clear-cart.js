@@ -1,7 +1,7 @@
 import { remove as removeClass } from './class-list'
 // Clears the cart without rendering
 module.exports = function(){
-	// Mark cart as dirty so it can rerender on next open
+	// Mark cart dirty so it can rerender on next open
 	this.dirty = true
 
 	// Clear cart
