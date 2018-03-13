@@ -18,7 +18,7 @@ module.exports = function(obj){
 
 	// Trigger event
 	if(this.onAdd){
-		this.onAdd()
+		this.onAdd(obj)
 	}
 
 	this.update()
