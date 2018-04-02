@@ -57,8 +57,7 @@ module.exports = function(n, noProcess){
 		}
 		if('dataLayer' in window){
 			dataLayer.push({
-				event: 'zygote',
-				action: 'shipping',
+				event: 'zygoteShipping'
 			})
 		}
 	}
@@ -71,8 +70,7 @@ module.exports = function(n, noProcess){
 		}
 		if ('dataLayer' in window) {
 			dataLayer.push({
-				event: 'zygote',
-				action: 'billing',
+				event: 'zygoteBilling'
 			})
 		}
 	}
@@ -86,8 +84,7 @@ module.exports = function(n, noProcess){
 		}
 		if ('dataLayer' in window) {
 			dataLayer.push({
-				event: 'zygote',
-				action: 'validation',
+				event: 'zygoteValidation'
 			})
 		}
 		if(!noProcess){
@@ -105,8 +102,7 @@ module.exports = function(n, noProcess){
 		}
 		if ('dataLayer' in window) {
 			dataLayer.push({
-				event: 'zygote',
-				action: 'confirmation',
+				event: 'zygoteConfirmation',
 			})
 		}
 		if(!noProcess){
