@@ -55,12 +55,24 @@ module.exports = function(n, noProcess){
 				eventAction: 'shipping'
 			})
 		}
+		if('dataLayer' in window){
+			dataLayer.push({
+				event: 'zygote',
+				action: 'shipping',
+			})
+		}
 	}
 	else if(this.step === 3){
 		if(this.googleAnalytics && 'ga' in window){
 			ga('send', 'event', {
 				eventCategory: 'Zygote Cart',
 				eventAction: 'billing'
+			})
+		}
+		if ('dataLayer' in window) {
+			dataLayer.push({
+				event: 'zygote',
+				action: 'billing',
 			})
 		}
 	}
@@ -70,6 +82,12 @@ module.exports = function(n, noProcess){
 			ga('send', 'event', {
 				eventCategory: 'Zygote Cart',
 				eventAction: 'validation'
+			})
+		}
+		if ('dataLayer' in window) {
+			dataLayer.push({
+				event: 'zygote',
+				action: 'validation',
 			})
 		}
 		if(!noProcess){
@@ -83,6 +101,12 @@ module.exports = function(n, noProcess){
 			ga('send', 'event', {
 				eventCategory: 'Zygote Cart',
 				eventAction: 'confirmation'
+			})
+		}
+		if ('dataLayer' in window) {
+			dataLayer.push({
+				event: 'zygote',
+				action: 'confirmation',
 			})
 		}
 		if(!noProcess){
