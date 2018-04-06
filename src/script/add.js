@@ -38,7 +38,7 @@ module.exports = function(obj){
 	if ('dataLayer' in window) {
 		dataLayer.push({
 			event: 'zygoteAdd',
-			id: obj.id.toUpperCase()
+			productId: obj.id.toUpperCase()
 		})
 	}
 
