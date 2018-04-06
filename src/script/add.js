@@ -35,6 +35,12 @@ module.exports = function(obj){
 			eventLabel: obj.id.toUpperCase()
 		})
 	}
+	if ('dataLayer' in window) {
+		dataLayer.push({
+			event: 'zygoteAdd',
+			id: obj.id.toUpperCase()
+		})
+	}
 
 	return this
 }
