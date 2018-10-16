@@ -84,7 +84,7 @@ module.exports = function(obj){
 			if(obj.tax){
 				this.els.tax.textContent = formatUsd(obj.tax)
 			}
-			if(obj.shipping){
+			if(typeof obj.shipping === 'number'){
 				this.els.ship.textContent = formatUsd(obj.shipping)
 			}
 			if(obj.total){
